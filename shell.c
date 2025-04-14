@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/wait.h>  // For waitpid
+#include <sys/wait.h>  
 
-extern char **environ;  // Declare environ to access the environment
+extern char **environ; 
 
 #define BUFFER_SIZE 1024
 
