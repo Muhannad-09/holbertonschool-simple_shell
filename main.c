@@ -64,9 +64,13 @@ void execute_command(char *line)
 	pid_t pid;
 	char *argv[100];
 	int i = 0;
-	char *token;
+	char *line_copy, *token;
 
-	token = strtok(line, " \t");
+	line_copy = strdup(line);
+	if (line_copy == NULL)
+		return;
+
+	token = strtok(line_copy, " \t");
 	while (token && i < 99)
 	{
 		argv[i++] = token;
@@ -78,6 +82,7 @@ void execute_command(char *line)
 	if (pid == -1)
 	{
 		perror("fork");
+		free(line_copy);
 		exit(EXIT_FAILURE);
 	}
 	else if (pid == 0)
@@ -92,6 +97,8 @@ void execute_command(char *line)
 	{
 		wait(NULL);
 	}
+
+	free(line_copy);
 }
 
 /**
