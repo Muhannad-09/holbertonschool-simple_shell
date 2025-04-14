@@ -7,7 +7,7 @@
 #include <sys/wait.h>
 
 /**
- * print_prompt - Prints the shell prompt only in interactive mode
+ * print_prompt - Print the shell prompt if interactive
  */
 void print_prompt(void)
 {
@@ -16,9 +16,9 @@ void print_prompt(void)
 }
 
 /**
- * read_line - Reads input from user, trims spaces
+ * read_line - Read a line from stdin and handle EOF
  *
- * Return: Pointer to valid input line or NULL
+ * Return: pointer to the read line (dynamically allocated)
  */
 char *read_line(void)
 {
@@ -30,22 +30,19 @@ char *read_line(void)
 	nread = getline(&line, &len, stdin);
 	if (nread == -1)
 	{
-		free(line);
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "\n", 1);
+		free(line);
 		return (NULL);
 	}
 
+	/* Remove newline */
 	line[strcspn(line, "\n")] = '\0';
 
+	/* Skip empty lines (spaces only) */
 	ptr = line;
-	while (*ptr)
-	{
-		if (*ptr != ' ' && *ptr != '\t')
-			break;
+	while (*ptr == ' ' || *ptr == '\t')
 		ptr++;
-	}
-
 	if (*ptr == '\0')
 	{
 		free(line);
@@ -56,21 +53,25 @@ char *read_line(void)
 }
 
 /**
- * execute_command - Forks and executes a command with arguments
- * @line: The input line containing the command
+ * execute_command - Tokenizes the input and runs execve
+ * @line: full input line from user
  */
 void execute_command(char *line)
 {
 	pid_t pid;
 	char *argv[100];
 	int i = 0;
-	char *line_copy, *token;
+	char *token;
+	char *copy;
 
-	line_copy = strdup(line);
-	if (line_copy == NULL)
+	copy = strdup(line);
+	if (copy == NULL)
+	{
+		perror("strdup");
 		return;
+	}
 
-	token = strtok(line_copy, " \t");
+	token = strtok(copy, " \t");
 	while (token && i < 99)
 	{
 		argv[i++] = token;
@@ -82,7 +83,7 @@ void execute_command(char *line)
 	if (pid == -1)
 	{
 		perror("fork");
-		free(line_copy);
+		free(copy);
 		exit(EXIT_FAILURE);
 	}
 	else if (pid == 0)
@@ -90,6 +91,7 @@ void execute_command(char *line)
 		if (execve(argv[0], argv, environ) == -1)
 		{
 			perror("./hsh");
+			free(copy);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -98,11 +100,11 @@ void execute_command(char *line)
 		wait(NULL);
 	}
 
-	free(line_copy);
+	free(copy);
 }
 
 /**
- * main - Entry point of the shell
+ * main - Shell loop
  *
  * Return: 0 on success
  */
@@ -119,6 +121,5 @@ int main(void)
 		execute_command(line);
 		free(line);
 	}
-
 	return (0);
 }
