@@ -7,11 +7,12 @@
 #include <sys/wait.h>
 
 /**
- * print_prompt - Prints the shell prompt
+ * print_prompt - Prints the shell prompt only in interactive mode
  */
 void print_prompt(void)
 {
-	write(STDOUT_FILENO, "($) ", 4);
+	if (isatty(STDIN_FILENO))
+		write(STDOUT_FILENO, "($) ", 4);
 }
 
 /**
@@ -29,7 +30,8 @@ char *read_line(void)
 	if (nread == -1)
 	{
 		free(line);
-		write(STDOUT_FILENO, "\n", 1);
+		if (isatty(STDIN_FILENO))
+			write(STDOUT_FILENO, "\n", 1);
 		return (NULL);
 	}
 	line[strcspn(line, "\n")] = '\0';
