@@ -16,15 +16,16 @@ void print_prompt(void)
 }
 
 /**
- * read_line - Reads input from user
+ * read_line - Reads input from user, trims spaces
  *
- * Return: Pointer to input line
+ * Return: Pointer to valid input line or NULL
  */
 char *read_line(void)
 {
 	char *line = NULL;
 	size_t len = 0;
 	ssize_t nread;
+	char *ptr;
 
 	nread = getline(&line, &len, stdin);
 	if (nread == -1)
@@ -34,18 +35,44 @@ char *read_line(void)
 			write(STDOUT_FILENO, "\n", 1);
 		return (NULL);
 	}
+
 	line[strcspn(line, "\n")] = '\0';
+
+	ptr = line;
+	while (*ptr)
+	{
+		if (*ptr != ' ' && *ptr != '\t')
+			break;
+		ptr++;
+	}
+
+	if (*ptr == '\0')
+	{
+		free(line);
+		return (NULL);
+	}
+
 	return (line);
 }
 
 /**
- * execute_command - Forks and executes a command
- * @line: The command to execute
+ * execute_command - Forks and executes a command with arguments
+ * @line: The input line containing the command
  */
 void execute_command(char *line)
 {
 	pid_t pid;
-	char *argv[2];
+	char *argv[100];
+	int i = 0;
+	char *token;
+
+	token = strtok(line, " \t");
+	while (token && i < 99)
+	{
+		argv[i++] = token;
+		token = strtok(NULL, " \t");
+	}
+	argv[i] = NULL;
 
 	pid = fork();
 	if (pid == -1)
@@ -55,8 +82,6 @@ void execute_command(char *line)
 	}
 	else if (pid == 0)
 	{
-		argv[0] = line;
-		argv[1] = NULL;
 		if (execve(argv[0], argv, environ) == -1)
 		{
 			perror("./hsh");
@@ -83,7 +108,7 @@ int main(void)
 		print_prompt();
 		line = read_line();
 		if (line == NULL)
-			break;
+			continue;
 		execute_command(line);
 		free(line);
 	}
