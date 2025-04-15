@@ -6,22 +6,15 @@
 
 extern char **environ;
 
-char *trim_spaces(char *str)
+int is_empty(const char *str)
 {
-    char *end;
-
-    while (*str == ' ' || *str == '\t')
+    while (*str)
+    {
+        if (*str != ' ' && *str != '\t')
+            return (0);
         str++;
-
-    if (*str == 0)
-        return str;
-
-    end = str + strlen(str) - 1;
-    while (end > str && (*end == ' ' || *end == '\t'))
-        end--;
-
-    *(end + 1) = '\0';
-    return str;
+    }
+    return (1);
 }
 
 int main(void)
@@ -29,30 +22,32 @@ int main(void)
     char *line = NULL;
     size_t len = 0;
     ssize_t read;
-    char *token, *argv[64];
+    char *argv[64];
     int i;
     pid_t pid;
-    char *clean_line;
+    char *token;
 
     while (1)
     {
-        printf("#cisfun$ ");
+        if (isatty(STDIN_FILENO))
+            printf("#cisfun$ ");
+
         read = getline(&line, &len, stdin);
         if (read == -1)
         {
-            printf("\n");
+            if (isatty(STDIN_FILENO))
+                printf("\n");
             break;
         }
 
         if (line[read - 1] == '\n')
             line[read - 1] = '\0';
 
-        clean_line = trim_spaces(line);
-        if (clean_line[0] == '\0')
+        if (is_empty(line))
             continue;
 
         i = 0;
-        token = strtok(clean_line, " \t");
+        token = strtok(line, " \t");
         while (token != NULL && i < 63)
         {
             argv[i++] = token;
