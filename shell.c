@@ -30,13 +30,13 @@ int main(void)
     while (1)
     {
         if (isatty(STDIN_FILENO))
-            printf("#cisfun$ ");
+            write(1, "#cisfun$ ", 9);
 
         read = getline(&line, &len, stdin);
         if (read == -1)
         {
             if (isatty(STDIN_FILENO))
-                printf("\n");
+                write(1, "\n", 1);
             break;
         }
 
