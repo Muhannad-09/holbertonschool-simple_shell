@@ -34,40 +34,39 @@ char *_getenv(const char *name)
 
 char *find_command(char *cmd)
 {
-    struct stat st;
-    char *path, *token, *full_path;
+    char *path_env, *path_dup, *token, *full_path;
     size_t len;
 
     if (strchr(cmd, '/') != NULL)
     {
-        if (stat(cmd, &st) == 0)
+        if (access(cmd, X_OK) == 0)
             return strdup(cmd);
         return NULL;
     }
 
-    path = _getenv("PATH");
-    if (!path)
+    path_env = _getenv("PATH");
+    if (!path_env || *path_env == '\0')
         return NULL;
 
-    path = strdup(path);
-    if (!path)
+    path_dup = strdup(path_env);
+    if (!path_dup)
         return NULL;
 
-    token = strtok(path, ":");
+    token = strtok(path_dup, ":");
     while (token)
     {
         len = strlen(token) + strlen(cmd) + 2;
         full_path = malloc(len);
         if (!full_path)
         {
-            free(path);
+            free(path_dup);
             return NULL;
         }
 
         snprintf(full_path, len, "%s/%s", token, cmd);
-        if (stat(full_path, &st) == 0)
+        if (access(full_path, X_OK) == 0)
         {
-            free(path);
+            free(path_dup);
             return full_path;
         }
 
@@ -75,7 +74,7 @@ char *find_command(char *cmd)
         token = strtok(NULL, ":");
     }
 
-    free(path);
+    free(path_dup);
     return NULL;
 }
 
