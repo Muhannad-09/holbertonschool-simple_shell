@@ -18,10 +18,24 @@ int is_empty(const char *str)
     return (1);
 }
 
+char *_getenv(const char *name)
+{
+    int i = 0;
+    size_t len = strlen(name);
+
+    while (environ[i])
+    {
+        if (strncmp(environ[i], name, len) == 0 && environ[i][len] == '=')
+            return environ[i] + len + 1;
+        i++;
+    }
+    return NULL;
+}
+
 char *find_command(char *cmd)
 {
     struct stat st;
-    char *path = getenv("PATH");
+    char *path = _getenv("PATH");
     char *token, *full_path;
     size_t len;
 
