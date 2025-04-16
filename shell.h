@@ -122,9 +122,10 @@ list_t *add_node_end(list_t **head, const char *str, int num);
 int _erratoi(char *s);
 
 /* --- String helpers (MISSING BEFORE) --- */
-int _strlen(char *s);
+int _strlen(const char *s);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
+int _strncmp(const char *s1, const char *s2, size_t n); /* Add declaration */
 
 #endif /* SHELL_H */
 
