@@ -17,15 +17,12 @@
 #define WRITE_BUF_SIZE 1024
 #define BUF_FLUSH -1
 
-/* --- Structs --- */
-
 /**
  * struct liststr - singly linked list for env/history/alias
  * @num: numeric ID
  * @str: string data
  * @next: pointer to next node
  */
-
 typedef struct liststr
 {
 	int num;
@@ -36,7 +33,6 @@ typedef struct liststr
 /**
  * struct passinfo - carries shell state
  */
-
 typedef struct passinfo
 {
 	char *arg;
@@ -59,7 +55,6 @@ typedef struct passinfo
 	int histcount;
 } info_t;
 
-/* Initializer for passinfo */
 #define INFO_INIT \
 	{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 0, 0}
 
@@ -68,25 +63,24 @@ typedef struct passinfo
  * @type: the command string
  * @func: the function to execute
  */
-
 typedef struct builtin
 {
 	char *type;
 	int (*func)(info_t *);
 } builtin_table;
 
-/* hsh.c */
+/* --- hsh.c --- */
 int hsh(info_t *, char **);
 int find_builtin(info_t *);
 void find_cmd(info_t *);
 void fork_cmd(info_t *);
 
-/* Shell state management */
+/* --- Shell state management --- */
 void clear_info(info_t *);
 void set_info(info_t *, char **);
 void free_info(info_t *, int);
 
-/* Input and execution */
+/* --- Input and execution --- */
 ssize_t get_input(info_t *);
 char **get_environ(info_t *);
 char *_getenv(info_t *, const char *);
@@ -102,19 +96,35 @@ int _eputchar(char);
 void _eputs(char *);
 int write_history(info_t *);
 
-/* builtin_emulators.c */
+/* --- Memory helpers --- */
+void ffree(char **);
+
+/* --- Builtin command handlers --- */
 int _myexit(info_t *);
 int _mycd(info_t *);
 int _myhelp(info_t *);
-
-/* builtin_emulators2.c */
 int _myhistory(info_t *);
 int _myalias(info_t *);
-
-/* env.c */
 int _myenv(info_t *);
 int _mysetenv(info_t *);
 int _myunsetenv(info_t *);
+
+/* --- Env helpers --- */
+int _setenv(info_t *info, char *name, char *value);
+int _unsetenv(info_t *info, char *name);
+int print_list_str(list_t *h);
+char *starts_with(const char *haystack, const char *needle);
+
+/* --- List helpers --- */
+list_t *add_node_end(list_t **head, const char *str, int num);
+
+/* --- Error helpers --- */
+int _erratoi(char *s);
+
+/* --- String helpers (MISSING BEFORE) --- */
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
 
 #endif /* SHELL_H */
 
