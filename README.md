@@ -33,7 +33,7 @@ It interprets user input, executes built-in and external commands, manages the e
 
 ## 🔧 How to Use
 
-### 🔹 Compile
+###🔹 Compile
 
 ```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
