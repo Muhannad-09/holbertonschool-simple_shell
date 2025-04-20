@@ -13,9 +13,9 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 	ssize_t r = 0;
 	size_t len_p = 0;
 
-	if (!*len) 
+	if (!*len)
 	{
-		
+
 		free(*buf);
 		*buf = NULL;
 		signal(SIGINT, sigintHandler);
@@ -28,13 +28,13 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 		{
 			if ((*buf)[r - 1] == '\n')
 			{
-				(*buf)[r - 1] = '\0'; 
+				(*buf)[r - 1] = '\0';
 				r--;
 			}
 			info->linecount_flag = 1;
 			remove_comments(*buf);
 			build_history_list(info, *buf, info->histcount++);
-			
+
 			{
 				*len = r;
 				info->cmd_buf = buf;
@@ -52,41 +52,41 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
  */
 ssize_t get_input(info_t *info)
 {
-	static char *buf; 
+	static char *buf;
 	static size_t i, j, len;
 	ssize_t r = 0;
 	char **buf_p = &(info->arg), *p;
 
 	_putchar(BUF_FLUSH);
 	r = input_buf(info, &buf, &len);
-	if (r == -1) 
+	if (r == -1)
 		return (-1);
-	if (len)	
+	if (len)
 	{
-		j = i; 
-		p = buf + i; 
+		j = i;
+		p = buf + i;
 
 		check_chain(info, buf, &j, i, len);
-		while (j < len) 
+		while (j < len)
 		{
 			if (is_chain(info, buf, &j))
 				break;
 			j++;
 		}
 
-		i = j + 1; 
-		if (i >= len) 
+		i = j + 1;
+		if (i >= len)
 		{
-			i = len = 0; 
+			i = len = 0;
 			info->cmd_buf_type = CMD_NORM;
 		}
 
-		*buf_p = p; 
-		return (_strlen(p)); 
+		*buf_p = p;
+		return (_strlen(p));
 	}
 
-	*buf_p = buf; 
-	return (r); 
+	*buf_p = buf;
+	return (r);
 }
 
 /**
@@ -138,7 +138,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	c = _strchr(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
 	new_p = _realloc(p, s, s ? s + k : k + 1);
-	if (!new_p) 
+	if (!new_p)
 		return (p ? free(p), -1 : -1);
 
 	if (s)

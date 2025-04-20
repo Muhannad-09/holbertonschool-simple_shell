@@ -73,3 +73,27 @@ char *_strcat(char *dest, char *src)
 	*dest = *src;
 	return (ret);
 }
+
+/**
+ * _strncat - concatenates two strings
+ * @dest: first string
+ * @src: second string
+ * @n: max number of bytes from src
+ * Return: pointer to dest
+ */
+char *_strncat(char *dest, char *src, int n)
+{
+	int i = 0, j = 0;
+	char *s = dest;
+
+	while (dest[i] != '\0')
+		i++;
+
+	while (src[j] != '\0' && j < n)
+		dest[i++] = src[j++];
+
+	if (j < n)
+		dest[i] = '\0';
+
+	return (s);
+}

@@ -85,3 +85,19 @@ int _putchar(char c)
 		buf[i++] = c;
 	return (1);
 }
+
+/**
+ * _strchr - locates a character in a string
+ * @s: string to search
+ * @c: character to find
+ * Return: pointer to first occurrence or NULL
+ */
+char *_strchr(char *s, char c)
+{
+	do {
+		if (*s == c)
+			return (s);
+	} while (*s++ != '\0');
+
+	return (NULL);
+}
