@@ -1,3 +1,3 @@
 # holbertonschool-simple_shell
 
-https://github.com/Muhannad-09/holbertonschool-simple_shell/blob/main/shell.jpeg?raw=true
+![image alt](image_url)(https://github.com/Muhannad-09/holbertonschool-simple_shell/blob/main/shell.jpeg?raw=true)
