@@ -2,129 +2,132 @@
 
 ![Shell Screenshot](https://github.com/Muhannad-09/holbertonschool-simple_shell/blob/main/shell.jpeg?raw=true)
 ________________________________________________________________________________________________________________
-simple_shell
-simple_shell
-============
+<h1 align="center">🌀 simple_shell</h1>
+<p align="center"><em>A custom UNIX command-line interpreter built from scratch in C</em></p>
 
-Overview
---------
+---
 
-simple_shell is a simple UNIX command line interpreter built in C. It was developed as part of the Holberton School curriculum to provide a deeper understanding of how shells work at the system level. It mimics the behavior of the standard sh shell and supports both interactive and non-interactive modes.
+## 🚀 Overview
 
-“The Gates of Shell” - by Spencer Cheng, featuring Julien Barbier
+This project is a **minimalist clone of the Unix shell**, developed as part of the ALX/Holberton low-level programming curriculum.  
+It interprets user input, executes built-in and external commands, manages the environment, and handles process control — all using low-level syscalls.
 
-Learning Objectives
--------------------
+> Think of it as building your own `bash`, one syscall at a time. 🧠⚙️
 
-After completing this project, you should be able to explain
-- Who designed and implemented the original UNIX operating system
-- Who wrote the first UNIX shell
-- Who invented the B programming language (the predecessor of C)
-- Who is Ken Thompson
-- How a shell works
-- What are PID and PPID
-- How to manipulate the environment of the current process
-- The difference between a function and a system call
-- How to create processes
-- The three prototypes of main
-- How the shell uses PATH to locate programs
-- How to execute another program using execve
-- How to suspend execution until a child process terminates
-- What is EOF (End-of-File)
+---
 
-Requirements
-------------
+## ✨ Features
 
-- OS: Ubuntu 20.04 LTS
-- Compiler: gcc with the following flags
+✅ Interactive and non-interactive modes  
+✅ Command execution via `fork` and `execve`  
+✅ Full PATH resolution  
+✅ Built-ins: `exit`, `env`, `cd`, `alias`, `help`, `history`, `setenv`, `unsetenv`  
+✅ Variable replacement: `$?`, `$$`, `$VARIABLE`  
+✅ Logical command chaining: `&&`, `||`, `;`  
+✅ Command history (persisted to a file)  
+✅ Environment variable manipulation  
+✅ Signal handling (`Ctrl+C`)  
+✅ Full memory management (valgrind-verified)
 
+---
+
+## 🔧 How to Use
+
+### 🔹 Compile
+
+```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+🔹 Run
+Interactive mode:
+bash
+نسخ
+تحرير
+./hsh
+$ ls -la
+$ cd ..
+$ exit
+Non-interactive mode:
+bash
+نسخ
+تحرير
+echo "ls -l" | ./hsh
+💻 Example Built-in Commands
+bash
+نسخ
+تحرير
+$ env
+$ setenv EDITOR vim
+$ unsetenv EDITOR
+$ alias ll='ls -la'
+$ history
+$ help
+$ cd /usr
+$ exit
+📂 File Breakdown
 
-- Coding style: Betty
-- No memory leaks
-- Maximum 5 functions per file
-- All header files must be include-guarded
+File	Description
+main.c	Entry point — detects mode, passes control to shell loop
+shell.c	Core logic: prompt, command parsing, execution
+parser.c	Validates executable path and command lookup
+builtins.c	Built-in commands like exit, cd, help
+builtins2.c	Extended built-ins like alias, history
+env.c / environ.c	Custom environment variable management
+input.c	User input handling with getline
+vars.c	Variable replacement engine ($?, $PATH, etc.)
+history.c	Command history management and storage
+utils.c	Helper string & character utilities
+tokenizer.c	Input tokenization
+info.c	Memory and struct management
+list.c, list2.c	Singly linked list utilities
+shell.h	Global definitions, prototypes, macros
+man_1_simple_shell	Manual page for the shell
+📘 Manual Page
+To view usage via the shell’s man page:
 
-File Structure
---------------
+bash
+نسخ
+تحرير
+man ./man_1_simple_shell
+🧠 Design Philosophy
+This shell avoids all use of high-level wrappers like system() and instead:
 
-.
-├── main.c              - Entry point
-├── shell.c             - Main loop
-├── builtins.c          - Built-in commands like exit and env
-├── input.c             - Reads user input
-├── tokenizer.c         - Parses input into tokens
-├── path.c              - Handles PATH resolution
-├── env.c               - Environment variable management
-├── errors.c            - Error messaging
-├── utils.c             - Helper functions
-├── memory.c            - Memory allocation helpers
-├── shell.h             - Main header
-└── README.md
+Uses fork() + execve() for process control
 
-Usage
------
+Manages memory with malloc, realloc, and free
 
-Interactive Mode
+Parses commands manually via custom string/token functions
 
-$ ./hsh
-($) ls
-main.c shell.c hsh
-($) exit
+Implements its own environment logic using linked lists
 
-Non-Interactive Mode
+We didn’t build a shell on top of Linux — we built a shell inside it.
 
-$ echo "ls" | ./hsh
-main.c shell.c hsh
+⚡ Advanced Capabilities
+Handles multiple chained commands: ls && echo done
 
-$ cat script.sh | ./hsh
-main.c shell.c hsh
+Supports custom aliases: alias l='ls -CF'
 
-Output
-------
+Maintains persistent command history
 
-Your shell must produce the same output as /bin/sh. The only difference is that error messages should show your program’s name (i.e., argv[0]).
+Ignores whitespace and comments gracefully
 
-Example
+Replaces shell variables with real-time values
 
-$ echo "qwerty" | ./hsh
-./hsh: 1: qwerty: not found
+🧪 Testing & Debugging
+Validated with custom test scripts and manual cases
 
-Allowed Functions & System Calls
---------------------------------
+Leak-checked with valgrind --leak-check=full
 
-- All functions from <string.h>
-- access, chdir, close, closedir, execve, exit, _exit
-- fflush, fork, free, getcwd, getline, getpid, isatty
-- kill, malloc, open, opendir, perror, printf
-- fprintf, vfprintf, sprintf, putchar, read, readdir
-- signal, stat, lstat, fstat, strtok, wait, waitpid
-- wait3, wait4, write
+Built without system() or other banned functions
 
-Memory Leak Checks
-------------------
+Edge cases handled: whitespace, empty input, invalid paths
 
-To test for memory leaks using valgrind
+👨‍💻 Authors
 
-valgrind ./hsh
+Name	GitHub
+Muhannad	@Muhannad-09
+Abdulaziz @abdulaziz-sale1
+See AUTHORS file for contributors list.
 
-Authors
--------
 
-- Muhannad-09: https://github.com/Muhannad-09
-- abdulaziz-saleh1: https://github.com/abdulaziz-saleh1
 
-Testing Examples
-----------------
-
-Interactive
-
-$ ./hsh
-($) /bin/ls
-main.c shell.c hsh
-($) exit
-
-Non-Interactive
-
-$ echo "/bin/ls" | ./hsh
-main.c shell.c hsh
+<h3 align="center">🛠️ Code it. 🧠 Understand it. 🚀 Master it.</h3> ```
