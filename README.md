@@ -20,30 +20,108 @@
 - ⚙️ No `system()` calls—pure `fork()`, `execve()`.
 
 ---
-
 ## ⚙️ How the Shell Works
-The hsh shell works just like /bin/sh, supporting interactive and non-interactive execution.
-🔹 Example 1: Interactive Mode :
 
-📝 Command:
-```
+The `hsh` shell works like `/bin/sh`, supporting both **interactive** and **non-interactive** modes.
+
+---
+
+### 🔹 Example 1: Interactive Mode
+```bash
+$ ./hsh
 $ ls
+AUTHORS  builtins.c  env.c  history.c  ...  vars.c
+$ exit
 ```
-💻 Output:
-```
-AUTHORS    builtins.c   env.c      errors.c   history.c  info.c   list.c   main.c              memory.c  realloc.c  shell.h     string.c   tokenizer.c  vars.c
-README.md  builtins2.c  environ.c  errors2.c  hsh        input.c  list2.c  man_1_simple_shell  parser.c  shell.c    shell.jpeg  string2.c  utils.c
-```
-🔹 Example 2: Non-interactive Mode : 
 
-📝 Command:
+---
+
+### 🔹 Example 2: Non-Interactive Mode
+```bash
+$ echo "/bin/ls" | ./hsh
+AUTHORS  builtins.c  env.c  history.c  ...  vars.c
 ```
-echo "/bin/ls" | ./hsh
+
+---
+
+### 🔹 Example 3: Input from File
+```bash
+$ echo "/bin/ls" > test.txt
+$ echo "/bin/pwd" >> test.txt
+$ echo "echo Hello from hsh" >> test.txt
+$ ./hsh < test.txt
+AUTHORS  builtins.c  env.c  ...
+/root/holbertonschool-simple_shell
+Hello from hsh
 ```
-💻 Output:
+
+---
+
+### 🔹 Example 4: Built-in `cd`
+```bash
+$ ./hsh
+$ cd /tmp
+$ pwd
+/tmp
+$ exit
 ```
-AUTHORS    builtins.c   env.c      errors.c   history.c  info.c   list.c   main.c              memory.c  realloc.c  shell.h     string.c   tokenizer.c  vars.c
-README.md  builtins2.c  environ.c  errors2.c  hsh        input.c  list2.c  man_1_simple_shell  parser.c  shell.c    shell.jpeg  string2.c  utils.c
+
+---
+
+### 🔹 Example 5: Built-in `setenv` and `echo`
+```bash
+$ ./hsh
+$ setenv MY_VAR "Holberton"
+$ echo $MY_VAR
+Holberton
+$ exit
+```
+
+---
+
+### 🔹 Example 6: Built-in `alias`
+```bash
+$ ./hsh
+$ alias greet='echo Hello ALX!'
+$ greet
+Hello ALX!
+$ exit
+```
+
+---
+
+### 🔹 Example 7: Built-in `history`
+```bash
+$ ./hsh
+$ ls
+$ cd /tmp
+$ setenv MY_VAR "Holberton"
+$ echo $MY_VAR
+$ history
+1  ls
+2  cd /tmp
+3  setenv MY_VAR "Holberton"
+4  echo $MY_VAR
+$ exit
+```
+
+---
+
+### 🔹 Example 8: Built-in `help`
+```bash
+$ ./hsh
+$ help
+Shell built-in commands:
+  cd, exit, env, setenv, unsetenv, alias, history, help
+$ exit
+```
+
+---
+
+### 🔹 Example 9: Exit the Shell
+```bash
+$ ./hsh
+$ exit
 ```
 
 
