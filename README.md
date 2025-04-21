@@ -227,8 +227,7 @@ $ exit
 
 
 
-## 📖 Manual Page (Unix style!)
-bash 
+## 📖 Manual Page 
 ```
 man ./man_1_simple_shell
 ```
