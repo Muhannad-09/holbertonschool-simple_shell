@@ -1,0 +1,76 @@
+.TH simple_shell 1 "21 April 2025" "Simple Shell Manual" "User Commands"
+.SH NAME
+simple_shell \- A simple UNIX command interpreter.
+.SH SYNOPSIS
+.B ./hsh
+.SH DESCRIPTION
+.B simple_shell
+is a basic command-line interpreter created as part of the Holberton School curriculum.
+It mimics the functionality of the UNIX shell, parsing and executing commands using
+.B fork()
+and
+.BR execve() .
+
+The shell handles:
+.TP
+- Command execution (with PATH resolution)
+.TP
+- Built-in commands:
+.B exit, env, setenv, unsetenv, cd, alias, help, history
+.TP
+- Command chaining with logical operators: &&, ||, ;
+.TP
+- Variable replacement with
+.BR $VAR
+and
+.BR $? , $$
+
+.SH OPTIONS
+No options are supported. The shell runs interactively or with a script.
+
+.SH BUILTINS
+.TP
+.B exit
+Exit the shell.
+.TP
+.B env
+Display environment variables.
+.TP
+.B setenv
+Set an environment variable.
+.TP
+.B unsetenv
+Remove an environment variable.
+.TP
+.B cd
+Change directory.
+.TP
+.B alias
+Create or display aliases.
+.TP
+.B help
+Display help about built-ins.
+.TP
+.B history
+Show command history.
+
+.SH EXAMPLES
+Run interactively:
+.B
+./hsh
+
+Run with script:
+.B
+./hsh script_file
+
+.SH AUTHOR
+Muhannad & Abdulaziz – Holberton School
+
+.SH BUGS
+No known bugs.
+
+.SH SEE ALSO
+.BR sh(1),
+.BR bash(1),
+.BR fork(2),
+.BR execve(2)
