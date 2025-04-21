@@ -7,18 +7,69 @@
 <h1 align="center">🚀 simple_shell</h1>
 
 
-## 🛠️ Hardcore Features
+📖 Description
 
-- 🔥 Execute commands interactively and non-interactively.
-- 🔗 Command chaining: `&&`, `||`, `;`.
-- 🧬 Built-ins: `exit`, `env`, `cd`, `alias`, `setenv`, `unsetenv`, `history`, `help`.
-- 🧠 Variable replacement (`$?`, `$$`, `$VARIABLE`).
-- 🌎 Complete environment variable handling.
-- 📜 Persistent command history management.
-- 🦾 Bulletproof error handling and memory management.
-- 🚦 Signal handling (Ctrl+C interrupts).
-- ⚙️ No `system()` calls—pure `fork()`, `execve()`.
+simple_shell is a custom Unix command interpreter implementing basic features of /bin/sh. It supports both interactive and non-interactive modes, built-in commands, variable expansion, command chaining, and robust memory and signal handling without using the system() call.
 
+🎯 Learning Objectives
+
+By the end of this project, you will be able to:
+
+Unix History & Design
+
+Explain who designed and implemented the original Unix operating system.
+
+Identify who wrote the first version of the UNIX shell.
+
+Describe the invention of the B programming language (predecessor to C).
+
+Detail who Ken Thompson is and his contributions.
+
+Shell Fundamentals
+
+Explain how a shell works (prompt, parsing, execution).
+
+Define what a PID and a PPID are.
+
+Manipulate the environment of the current process.
+
+Distinguish between a function and a system call.
+
+Create new processes with fork().
+
+List the three prototypes of the main function.
+
+Explain how the shell uses the PATH to locate executables.
+
+Execute another program via the execve system call.
+
+Suspend execution until a child process terminates (wait family).
+
+Handle end-of-file (EOF) conditions.
+
+⚙️ Requirements
+
+Editors: vi, vim, emacs only.
+
+Compilation (Ubuntu 20.04 LTS):
+
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+Coding Style: Betty style enforced (betty-style.pl, betty-doc.pl).
+
+Memory Management: No memory leaks (use valgrind).
+
+File Organization: Max 5 functions per file.
+
+Headers: All header files must be include-guarded.
+
+System Calls: Use only when necessary (avoid system()).
+
+Allowed Functions & System Calls:
+
+String functions (strtok, strlen, etc.)
+
+access, chdir, close, closedir, execve, exit, _exit, fflush, fork, free, getcwd, getline, getpid, isatty, kill, malloc, open, opendir, perror, printf, fprintf, vfprintf, sprintf, putchar, read, readdir, signal, stat, lstat, fstat, wait, waitpid, wait3, wait4, write
 ---
 ## ⚙️ How the Shell Works
 
