@@ -227,31 +227,13 @@ $ exit
 
 
 
-📖 Manual Page (Unix style!)
+## 📖 Manual Page (Unix style!)
 bash 
 ```
 man ./man_1_simple_shell
 ```
-💡 Design Choices (Why it's awesome)
-💪 Efficiency: Direct Linux syscalls, avoiding overhead.
 
-🧳 Portability: Runs smoothly on any Unix-based OS.
-
-🔥 Control: No external libs—every byte is yours.
-
-🛡️ Robustness: Meticulously checked with Valgrind—no leaks.
-
-📦 Extensible: Easy to add your custom built-ins and commands.
-
-
-🎯 Tests & Validation
-✅ Valgrind leak-free certification
-
-✅ Manual tests covering edge cases
-
-✅ Holberton compliance (gcc -Wall -Werror -Wextra -pedantic -std=gnu89)
-
-🙌 Authors & Contributors
+## 🙌 Authors & Contributors
 by:
 - Muhannad — @Muhannad-09
 - Abdulaziz - @Abdulaziz-Saleh1
