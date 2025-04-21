@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Simple_Shell-_Holberton-blue?style=for-the-badge&logo=gnu-bash" alt="Simple Shell">
   <br><br>
-[![Simple Shell](https://github.com/Muhannad-09/holbertonschool-simple_shell/blob/main/OIG4.jpg?raw=true)]
+![Alt text](https://github.com/Muhannad-09/holbertonschool-simple_shell/raw/main/OIG4.jpg)
 </p>
 
 <h1 align="center">🚀 simple_shell</h1>
