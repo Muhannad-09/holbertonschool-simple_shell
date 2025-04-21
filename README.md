@@ -4,23 +4,8 @@
   <img src="https://media.giphy.com/media/WoWm8YzFQJg5i/giphy.gif" width="300">
 </p>
 
-<h1 align="center">🚀 simple_shell: Rewriting Unix History</h1>
+<h1 align="center">🚀 simple_shell</h1>
 
-<p align="center">
-  <em>✨ A handmade Unix command interpreter built entirely in C ✨</em>
-  <br>
-  <strong>"Forget Bash. Build your own."</strong>
-</p>
-
----
-
-## 🌌 Why another Shell?
-
-Unix shells have powered tech for decades. This isn't just any shell—it's your shell. Handcrafted from scratch, using pure C and Linux syscalls. No shortcuts, no built-in libraries, no training wheels.
-
-
-
----
 
 ## 🛠️ Hardcore Features
 
