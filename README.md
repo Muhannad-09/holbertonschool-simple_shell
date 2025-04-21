@@ -7,11 +7,11 @@
 <h1 align="center">🚀 simple_shell</h1>
 
 
-📖 Description
+## 📖 Description
 
 simple_shell is a custom Unix command interpreter implementing basic features of /bin/sh. It supports both interactive and non-interactive modes, built-in commands, variable expansion, command chaining, and robust memory and signal handling without using the system() call.
 
-🎯 Learning Objectives
+## 🎯 Learning Objectives
 
 By the end of this project, you will be able to:
 
@@ -179,7 +179,7 @@ $ exit
 
 
 
-🚧 Project Structure 
+## 🚧 Project Structure 
 
 <table>
   <thead>
