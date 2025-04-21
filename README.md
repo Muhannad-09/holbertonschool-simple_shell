@@ -21,36 +21,32 @@
 
 ---
 
-## 🧩 Built-ins & Examples
+## ⚙️ How the Shell Works
+The hsh shell works just like /bin/sh, supporting interactive and non-interactive execution.
+🔹 Example 1: Interactive Mode :
+📝 Command:
+```
+$ ls
+```
+💻 Output:
+```
+AUTHORS    builtins.c   env.c      errors.c   history.c  info.c   list.c   main.c              memory.c  realloc.c  shell.h     string.c   tokenizer.c  vars.c
+README.md  builtins2.c  environ.c  errors2.c  hsh        input.c  list2.c  man_1_simple_shell  parser.c  shell.c    shell.jpeg  string2.c  utils.c
+```
+🔹 Example 2: Non-interactive Mode : 
+📝 Command:
+```
+echo "/bin/ls" | ./hsh
+```
+💻 Output:
+```
+AUTHORS    builtins.c   env.c      errors.c   history.c  info.c   list.c   main.c              memory.c  realloc.c  shell.h     string.c   tokenizer.c  vars.c
+README.md  builtins2.c  environ.c  errors2.c  hsh        input.c  list2.c  man_1_simple_shell  parser.c  shell.c    shell.jpeg  string2.c  utils.c
+```
 
 
-✨ $ cd /usr/bin
-✨ $ alias greet='echo Hello, holberton!'
-✨ $ greet
 
 
-✨ $ setenv MY_VAR "Holberton"
-✨ $ echo $MY_VAR
-
-
-✨ $ history
-1 cd /usr/bin
-2 alias greet='echo Hello, Holberton!'
-3 greet
-4 setenv MY_VAR "Holberton"
-5 echo $MY_VAR
-
-✨ $ help
-✨ $ exit
-
-🌟 Quick Demo
-Run commands directly:
-./hsh
-$ ls -la
-$ echo "Unix Wizardry"
-
-Pipe commands into the shell:
-echo "pwd" | ./hsh
 
 🚧 Project Structure 
 
