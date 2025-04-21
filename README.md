@@ -47,7 +47,7 @@ Suspend execution until a child process terminates (wait family).
 
 Handle end-of-file (EOF) conditions.
 
-⚙️ Requirements
+## ⚙️ Requirements
 
 Editors: vi, vim, emacs only.
 
@@ -71,9 +71,7 @@ String functions (strtok, strlen, etc.)
 
 access, chdir, close, closedir, execve, exit, _exit, fflush, fork, free, getcwd, getline, getpid, isatty, kill, malloc, open, opendir, perror, printf, fprintf, vfprintf, sprintf, putchar, read, readdir, signal, stat, lstat, fstat, wait, waitpid, wait3, wait4, write
 ---
-## ⚙️ How the Shell Works
-
-The `hsh` shell works like `/bin/sh`, supporting both **interactive** and **non-interactive** modes.
+## 📦 Installation & Usage
 
 ---
 
