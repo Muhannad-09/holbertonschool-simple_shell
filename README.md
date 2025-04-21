@@ -101,13 +101,14 @@ man ./man_1_simple_shell
 💡 Design Choices (Why it's awesome)
 💪 Efficiency: Direct Linux syscalls, avoiding overhead.
 
-🦅 Portability: Runs smoothly on any Unix-based OS.
+🧳 Portability: Runs smoothly on any Unix-based OS.
 
 🔥 Control: No external libs—every byte is yours.
 
 🛡️ Robustness: Meticulously checked with Valgrind—no leaks.
 
-🌠 Extensible: Easy to add your custom built-ins and commands.
+📦 Extensible: Easy to add your custom built-ins and commands.
+
 
 🎯 Tests & Validation
 ✅ Valgrind leak-free certification
