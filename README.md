@@ -95,7 +95,7 @@ echo "pwd" | ./hsh
 ```
 
 📖 Manual Page (Unix style!)
-
+bash ```
 man ./man_1_simple_shell
 
 💡 Design Choices (Why it's awesome)
@@ -117,7 +117,7 @@ man ./man_1_simple_shell
 ✅ Holberton compliance (gcc -Wall -Werror -Wextra -pedantic -std=gnu89)
 
 🙌 Authors & Contributors
-Built with ❤️ & caffeine by:
+by:
 
 Muhannad — @Muhannad-09
 Abdulaziz - @Abdulaziz-Saleh1
