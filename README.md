@@ -82,9 +82,9 @@ $ exit
 ### 🔹 Example 6: Built-in `alias`
 ```bash
 $ ./hsh
-$ alias greet='echo Hello ALX!'
+$ alias greet='echo Hello!'
 $ greet
-Hello ALX!
+Hello!
 $ exit
 ```
 
