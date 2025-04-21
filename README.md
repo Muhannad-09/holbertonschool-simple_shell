@@ -30,38 +30,25 @@ simple_shell is a custom Unix command interpreter implementing basic features of
 
 By the end of this project, you will be able to:
 
-Unix History & Design
+### Unix History & Design
 
-Explain who designed and implemented the original Unix operating system.
+- Explain who designed and implemented the original Unix operating system.
+- Identify who wrote the first version of the UNIX shell.
+- Describe the invention of the B programming language (predecessor to C).
+- Detail who Ken Thompson is and his contributions.
 
-Identify who wrote the first version of the UNIX shell.
+### Shell Fundamentals
 
-Describe the invention of the B programming language (predecessor to C).
-
-Detail who Ken Thompson is and his contributions.
-
-Shell Fundamentals
-
-Explain how a shell works (prompt, parsing, execution).
-
-Define what a PID and a PPID are.
-
-Manipulate the environment of the current process.
-
-Distinguish between a function and a system call.
-
-Create new processes with fork().
-
-List the three prototypes of the main function.
-
-Explain how the shell uses the PATH to locate executables.
-
-Execute another program via the execve system call.
-
-Suspend execution until a child process terminates (wait family).
-
-Handle end-of-file (EOF) conditions.
-
+- Explain how a shell works (prompt, parsing, execution).
+- Define what a PID and a PPID are.
+- Manipulate the environment of the current process.
+- Distinguish between a function and a system call.
+- Create new processes with fork().
+- List the three prototypes of the main function.
+- Explain how the shell uses the PATH to locate executables.
+- Execute another program via the execve system call.
+- Suspend execution until a child process terminates (wait family).
+- Handle end-of-file (EOF) conditions.
 ## ⚙️ Requirements
 
 Editors: vi, vim, emacs only.
