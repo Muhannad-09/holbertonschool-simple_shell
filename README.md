@@ -119,8 +119,7 @@ man ./man_1_simple_shell
 
 🙌 Authors & Contributors
 by:
-
-Muhannad — @Muhannad-09
-Abdulaziz - @Abdulaziz-Saleh1
-
+- Muhannad — @Muhannad-09
+- Abdulaziz - @Abdulaziz-Saleh1
+<br>
 <p align="center"> <strong>💻 Code. 🧠 Learn. 🚀 Conquer.</strong> <br><br> <img src="https://media.giphy.com/media/QTfX9Ejfra3ZmNxh6B/giphy.gif" width="200"> </p> ```
