@@ -24,6 +24,7 @@
 ## ⚙️ How the Shell Works
 The hsh shell works just like /bin/sh, supporting interactive and non-interactive execution.
 🔹 Example 1: Interactive Mode :
+
 📝 Command:
 ```
 $ ls
@@ -34,6 +35,7 @@ AUTHORS    builtins.c   env.c      errors.c   history.c  info.c   list.c   main.
 README.md  builtins2.c  environ.c  errors2.c  hsh        input.c  list2.c  man_1_simple_shell  parser.c  shell.c    shell.jpeg  string2.c  utils.c
 ```
 🔹 Example 2: Non-interactive Mode : 
+
 📝 Command:
 ```
 echo "/bin/ls" | ./hsh
