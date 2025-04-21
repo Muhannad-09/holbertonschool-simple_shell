@@ -154,7 +154,7 @@ echo "pwd" | ./hsh
 📖 Manual Page (Unix style!)
 bash ```
 man ./man_1_simple_shell
-
+```
 💡 Design Choices (Why it's awesome)
 💪 Efficiency: Direct Linux syscalls, avoiding overhead.
 
