@@ -51,27 +51,30 @@ By the end of this project, you will be able to:
 - Handle end-of-file (EOF) conditions.
 ## ⚙️ Requirements
 
-Editors: vi, vim, emacs only.
+- **📝 Editors:** `vi`, `vim`, `emacs` only.
+- **🛠️ Compilation (Ubuntu 20.04 LTS):**
+  ```
+  gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+  ```
+- **📏 Coding Style: Betty style enforced (betty-style.pl, betty-doc.pl).
 
-Compilation (Ubuntu 20.04 LTS):
+- **🧠 Memory Management: No memory leaks (use valgrind).
 
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+- **📂 File Organization: Max 5 functions per file.
 
-Coding Style: Betty style enforced (betty-style.pl, betty-doc.pl).
+- **📌 Headers: All header files must be include-guarded.
 
-Memory Management: No memory leaks (use valgrind).
+- **🚫 System Calls: Use only when necessary (avoid system()).
 
-File Organization: Max 5 functions per file.
+- **✅ Allowed Functions & System Calls:
 
-Headers: All header files must be include-guarded.
+- String functions (strtok, strlen, etc.)
+- System calls:
+access, chdir, close, closedir, execve, exit, _exit, fflush, fork, free,
+getcwd, getline, getpid, isatty, kill, malloc, open, opendir,
+perror, printf, fprintf, vfprintf, sprintf, putchar, read, readdir,
+signal, stat, lstat, fstat, wait, waitpid, wait3, wait4, write
 
-System Calls: Use only when necessary (avoid system()).
-
-Allowed Functions & System Calls:
-
-String functions (strtok, strlen, etc.)
-
-access, chdir, close, closedir, execve, exit, _exit, fflush, fork, free, getcwd, getline, getpid, isatty, kill, malloc, open, opendir, perror, printf, fprintf, vfprintf, sprintf, putchar, read, readdir, signal, stat, lstat, fstat, wait, waitpid, wait3, wait4, write
 ---
 ## 📦 Installation & Usage
 
