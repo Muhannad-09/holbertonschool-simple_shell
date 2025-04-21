@@ -6,6 +6,21 @@
 
 <h1 align="center">🚀 simple_shell</h1>
 
+---
+
+## 📚 Table of Contents
+
+- [📖 Description](#-description)
+- [🎯 Learning Objectives](#-learning-objectives)
+- [⚙️ Requirements](#️-requirements)
+- [📦 Installation & Usage](#-installation--usage)
+- [🚧 Project Structure](#-project-structure)
+- [📖 Manual Page](#-manual-page)
+- [🙌 Authors & Contributors](#-authors--contributors)
+
+---
+
+
 
 ## 📖 Description
 
