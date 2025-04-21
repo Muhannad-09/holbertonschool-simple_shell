@@ -53,7 +53,7 @@ Pipe commands into the shell:
 echo "pwd" | ./hsh
 
 🚧 Project Structure 
-```
+
 <table>
   <thead>
     <tr>
@@ -149,7 +149,7 @@ echo "pwd" | ./hsh
   </tbody>
 </table>
 
-```
+
 
 📖 Manual Page (Unix style!)
 bash ```
