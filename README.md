@@ -7,8 +7,6 @@
 </p>
 
 
-<img src="https://github.com/Muhannad-09/holbertonschool-simple_shell/raw/main/OIG4.jpg" alt="Simple Shell Screenshot" width="500">
-</p>
 
 <h1 align="center">🚀 simple_shell</h1>
 
