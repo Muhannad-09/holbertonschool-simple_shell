@@ -3,8 +3,9 @@
   <br><br>
 
 <p align="center">
-  <img src="https://i.imgur.com/ImU8DFF.jpg" alt="Seahorse Logo" width="300">
+  <img src="https://i.imgur.com/m6HspIH.jpeg" alt="Seahorse Logo" width="300">
 </p>
+
 
 <img src="https://github.com/Muhannad-09/holbertonschool-simple_shell/raw/main/OIG4.jpg" alt="Simple Shell Screenshot" width="500">
 </p>
