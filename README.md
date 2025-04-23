@@ -7,7 +7,6 @@
 </p>
 
 
-
 <h1 align="center">🚀 simple_shell</h1>
 
 ---
