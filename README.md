@@ -52,24 +52,26 @@ By the end of this project, you will be able to:
 - Execute another program via the execve system call.
 - Suspend execution until a child process terminates (wait family).
 - Handle end-of-file (EOF) conditions.
+
+---
 ## ⚙️ Requirements
 
-- **📝 Editors:** `vi`, `vim`, `emacs` only.
-- **🛠️ Compilation (Ubuntu 20.04 LTS):**
+- 📝 Editors:** `vi`, `vim`, `emacs` only.
+- 🛠️ Compilation (Ubuntu 20.04 LTS):**
   ```
   gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
   ```
-- **📏 Coding Style: Betty style enforced (betty-style.pl, betty-doc.pl).
+- 📏 Coding Style: Betty style enforced (betty-style.pl, betty-doc.pl).
 
-- **🧠 Memory Management: No memory leaks (use valgrind).
+- 🧠 Memory Management: No memory leaks (use valgrind).
 
-- **📂 File Organization: Max 5 functions per file.
+- 📂 File Organization: Max 5 functions per file.
 
-- **📌 Headers: All header files must be include-guarded.
+- 📌 Headers: All header files must be include-guarded.
 
-- **🚫 System Calls: Use only when necessary (avoid system()).
+- 🚫 System Calls: Use only when necessary (avoid system()).
 
-- **✅ Allowed Functions & System Calls:
+- ✅ Allowed Functions & System Calls:
 
 - String functions (strtok, strlen, etc.)
 - System calls:
@@ -180,9 +182,11 @@ $ exit
 $ ./hsh
 $ exit
 ```
+## 🗺️ Flowchart:
 
-
-
+<p align="center">
+  <img src="https://i.imgur.com/NLN2RvR.png" alt="Shell Flowchart" width="600">
+</p>
 
 
 ## 🚧 Project Structure 
